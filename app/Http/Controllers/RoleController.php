@@ -24,9 +24,10 @@ class RoleController extends Controller
         return view('roles.index',[
             'roles' => $roles,
             'module' => 'Roles',
+            'new' => 'Nuevo Rol',
+            'notice' => 'No hay roles registrados',
             'subject' => 'Lista de Roles',
             'route' => route('roles.create'),
-            'new' => 'Nuevo Rol'
         ]);
 
     }
@@ -39,8 +40,12 @@ class RoleController extends Controller
     public function create()
     {
         return view('roles.create',[
+            'role' => $role = new Role,
             'module' => 'Roles',
             'subject' => 'Nuevo Rol',
+            'button' => 'Guardar',
+            'process' => route('roles.store'),
+            'back' => route('roles.index'),
         ]);
     }
 
@@ -71,7 +76,11 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('roles.show', [
+            'role' => $role,
+            'module' => 'Roles',
+            'subject' => 'Detalle de Rol'
+        ]);
     }
 
     /**
@@ -82,7 +91,14 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('roles.edit',[
+            'role' => $role,
+            'module' => 'Roles',
+            'subject' => 'Editar Rol',
+            'button' => 'Editar',
+            'process' => route('roles.update', $role),
+            'back' => route('roles.index')
+        ]);
     }
 
     /**
@@ -94,7 +110,15 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|string|min:3'
+        ]);
+
+        $role = Role::find($role->id); //select * from roles where id = {$id};
+        $role->name = $request->name;
+        $role->save();
+
+        return redirect('/roles/' . $role->id)->with('success','El rol se ha modificado correctamente');
     }
 
     /**
