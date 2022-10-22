@@ -1,0 +1,1 @@
+<title>CA :: {{ $slot }}</title>

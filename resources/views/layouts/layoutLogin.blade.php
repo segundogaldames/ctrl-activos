@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <x-title>Login</x-title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -68,19 +71,15 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 </head>
+
 <body>
-@include('partials._header')
+    @include('partials._header')
 
-<div class="container-fluid">
-    <div class="row">
-        @include('partials._sidebar')
+    <div class="container-fluid">
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        @yield('content')
 
-            @yield('content')
-        </main>
     </div>
-</div>
     <script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
@@ -94,4 +93,5 @@
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
 </body>
+
 </html>

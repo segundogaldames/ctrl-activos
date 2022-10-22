@@ -1,7 +1,3 @@
-@php
-    $module='otro sitio';
-    $subject='pagina principal';
-@endphp
-<x-page :module=$module :subject=$subject>
+<x-page module='Dashboard' subject='Página Principal'>
     <h1>Hola Desde Dashboard</h1>
 </x-page>

@@ -1,4 +1,4 @@
-<p class="text-danger">Campos obligatorios *</p>
+<x-fieldRequired></x-fieldRequired>
 <form action="{{ $process }}" method="post">
     @csrf
     @if ($button == 'Editar')

@@ -79,7 +79,8 @@ class RoleController extends Controller
         return view('roles.show', [
             'role' => $role,
             'module' => 'Roles',
-            'subject' => 'Detalle de Rol'
+            'subject' => 'Detalle de Rol',
+            'back' => route('roles.index')
         ]);
     }
 
