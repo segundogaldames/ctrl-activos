@@ -2,19 +2,9 @@
 
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +17,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('roles', RoleController::class);
 Route::resource('users', UserController::class);
 Route::resource('statuses', StatusController::class);
+Route::resource('types', TypeController::class);
