@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+})->middleware('auth','active');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('roles', RoleController::class);
+Route::resource('users', UserController::class);
+Route::resource('statuses', StatusController::class);
