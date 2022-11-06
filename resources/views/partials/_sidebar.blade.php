@@ -15,6 +15,14 @@
                         Orders
                     </a>
                 </li>
+                </li>
+                    <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                    <span>Usuarios</span>
+                    <a class="link-secondary" href="#" aria-label="Add a new report">
+                        <span data-feather="plus-circle" class="align-text-bottom"></span>
+                    </a>
+                </h6>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('roles.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-check"
@@ -33,12 +41,13 @@
                         Usuarios
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                        Productos
+                    <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                    <span>Productos</span>
+                    <a class="link-secondary" href="#" aria-label="Add a new report">
+                        <span data-feather="plus-circle" class="align-text-bottom"></span>
                     </a>
-                </li>
+                </h6>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('statuses.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-device-ssd"
@@ -51,6 +60,19 @@
                         Estados
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('trademarks.index') }}">
+                        <span data-feather="layers" class="align-text-bottom"></span>
+                        Marcas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                        Productos
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('types.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-list-task"

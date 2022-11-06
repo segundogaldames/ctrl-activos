@@ -4,6 +4,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TrademarkController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,4 @@ Route::resource('roles', RoleController::class);
 Route::resource('users', UserController::class);
 Route::resource('statuses', StatusController::class);
 Route::resource('types', TypeController::class);
+Route::resource('trademarks', TrademarkController::class);
