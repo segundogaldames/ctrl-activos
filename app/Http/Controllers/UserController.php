@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','active']);
+        //$this->middleware(['auth','active']);
 
     }
     /**
