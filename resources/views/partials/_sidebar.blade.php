@@ -122,7 +122,7 @@
                     </a>
                 </h6>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('positions.index') }}">
+                    <a class="nav-link" href="{{ route('cities.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-building"
                             viewBox="0 0 16 16">
                             <path

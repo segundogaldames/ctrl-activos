@@ -76,10 +76,10 @@ class AreaController extends Controller
     public function show(Area $area)
     {
         return view('areas.show', [
-        'area' => $area,
-        'module' => 'Regiones',
-        'subject' => 'Detalle de Region',
-        'back' => route('areas.index')
+            'area' => $area,
+            'module' => 'Regiones',
+            'subject' => 'Detalle de Region',
+            'back' => route('areas.index')
         ]);
     }
 
