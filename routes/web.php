@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
@@ -26,3 +27,4 @@ Route::resource('trademarks', TrademarkController::class);
 Route::resource('products', ProductController::class);
 Route::resource('positions', PositionController::class);
 Route::resource('employees', EmployeeController::class);
+Route::resource('areas', AreaController::class);
