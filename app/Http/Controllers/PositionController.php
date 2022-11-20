@@ -92,7 +92,7 @@ class PositionController extends Controller
      */
     public function edit(Position $position)
     {
-        return view('positions.create',[
+        return view('positions.edit',[
             'position' => $position,
             'module' => 'Cargos',
             'subject' => 'Editar Cargo',
