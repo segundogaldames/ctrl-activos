@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StatusController;
@@ -22,3 +23,4 @@ Route::resource('statuses', StatusController::class);
 Route::resource('types', TypeController::class);
 Route::resource('trademarks', TrademarkController::class);
 Route::resource('products', ProductController::class);
+Route::resource('positions', PositionController::class);
