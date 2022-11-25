@@ -31,3 +31,4 @@ Route::resource('positions', PositionController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('areas', AreaController::class);
 Route::resource('cities', CityController::class);
+Route::resource('providers', ProviderController::class);

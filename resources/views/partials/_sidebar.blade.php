@@ -145,9 +145,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('providers.index') }}">
                         <span data-feather="users" class="align-text-bottom"></span>
-                        Customers
+                        Proveedores
                     </a>
                 </li>
                 <li class="nav-item">

@@ -58,12 +58,17 @@ class ProviderController extends Controller
         $this->validate($request, [
             'name' => 'required|string|min:3',
             'rut' => 'required|string|min:8|unique:providers',
-            'address' => 'required|string:3',
             'business' => 'required|string|min:3',
             'email' => 'required|email',
-            'website' => 'url',
+            'address' => 'required|string:3',
             'city' => 'required|integer'
         ]);
+
+        if ($request->website) {
+            $this->validate($request,[
+                'website' => 'url',
+            ]);
+        }
 
         if (!$this->validateRut($request->rut)) {
             return redirect('providers/create')->with('danger','El RUT ingresado no es válido');
@@ -131,10 +136,10 @@ class ProviderController extends Controller
         $this->validate($request, [
             'name' => 'required|string|min:3',
             'rut' => 'required|string|min:8',
-            'address' => 'required|string:3',
             'business' => 'required|string|min:3',
             'email' => 'required|email',
             'website' => 'url',
+            'address' => 'required|string:3',
             'city' => 'required|integer'
         ]);
 
