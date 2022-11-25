@@ -138,10 +138,15 @@ class ProviderController extends Controller
             'rut' => 'required|string|min:8',
             'business' => 'required|string|min:3',
             'email' => 'required|email',
-            'website' => 'url',
             'address' => 'required|string:3',
             'city' => 'required|integer'
         ]);
+
+        if ($request->website) {
+            $this->validate($request,[
+                'website' => 'url',
+            ]);
+        }
 
         if (!$this->validateRut($request->rut)) {
             return redirect('providers/' . $provider->id . '/edit')->with('danger','El RUT ingresado no es válido');

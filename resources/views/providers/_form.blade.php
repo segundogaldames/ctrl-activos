@@ -30,7 +30,7 @@
     </div>
     <div class="mb-3">
         <label for="website" class="form-label">Sitio web (opcional) </label>
-        <input type="url" name="website" value="{{ old('website', $provider->website) }}" class="form-control" id="website"
+        <input type="text" name="website" value="{{ old('website', $provider->website) }}" class="form-control" id="website"
             aria-describedby="emailHelp">
         @if($errors->has('website')) <p class="alert alert-danger mt-2">{{ $errors->first('website') }}</p>@endif
     </div>
