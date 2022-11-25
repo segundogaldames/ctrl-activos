@@ -13,4 +13,9 @@ class City extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+    public function providers()
+    {
+        return $this->hasMany(Provider::class);
+    }
 }
