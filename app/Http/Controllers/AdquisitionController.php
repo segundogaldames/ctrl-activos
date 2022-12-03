@@ -27,7 +27,7 @@ class AdquisitionController extends Controller
             'module' => 'Adquisiciones',
             'new' => 'Nueva Adquisición',
             'notice' => 'No hay adquisiciones registradas',
-            'subject' => 'Lista de Adquisitiones',
+            'subject' => 'Lista de Adquisiciones',
             'route' => route('adquisitions.create'),
         ]);
     }
@@ -43,6 +43,7 @@ class AdquisitionController extends Controller
 
         return view('adquisitions.create',[
             'adquisition' => $adquisition = new Adquisition,
+            'providers' => $providers,
             'module' => 'Adquisiciones',
             'subject' => 'Nueva Adquisición',
             'button' => 'Guardar',
@@ -60,7 +61,7 @@ class AdquisitionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'provider' => 'request|integer'
+            'provider' => 'required|integer'
         ]);
 
         $adquisition = new Adquisition;
@@ -79,40 +80,12 @@ class AdquisitionController extends Controller
      */
     public function show(Adquisition $adquisition)
     {
-        //
+        return view('adquisitions.show', [
+            'adquisition' => $adquisition,
+            'module' => 'Adquisiciones',
+            'subject' => 'Detalle de Adquisición',
+            'back' => route('adquisitions.index')
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Adquisition  $adquisition
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Adquisition $adquisition)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Adquisition  $adquisition
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Adquisition $adquisition)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Adquisition  $adquisition
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Adquisition $adquisition)
-    {
-        //
-    }
 }

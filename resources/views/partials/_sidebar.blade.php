@@ -75,6 +75,12 @@
                     </a>
                 </h6>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('adquisitions.index') }}">
+                        <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                        Adquisiciones
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('statuses.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-device-ssd"
                             viewBox="0 0 16 16">
