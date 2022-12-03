@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdquisitionController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
@@ -34,3 +35,9 @@ Route::resource('areas', AreaController::class);
 Route::resource('cities', CityController::class);
 Route::resource('providers', ProviderController::class);
 Route::resource('adquisitions', AdquisitionController::class)->only('index','show','create','store');
+Route::resource('details', DetailController::class)->only('show','edit','update');
+
+//rutas especificas
+
+Route::get('/details/addDetail/{adquisition}', [DetailController::class, 'addDetail'])->name('details.addDetail');
+Route::post('/details/newDetail/{adquisition}',[DetailController::class, 'newDetail'])->name('details.newDetail');

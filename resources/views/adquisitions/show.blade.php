@@ -24,6 +24,7 @@
         </table>
         <p>
             <x-buttonBack :back=$back></x-buttonBack>
+            <a href="{{ route('details.addDetail', $adquisition) }}" class="btn btn-outline-success">Agregar Detalle</a>
         </p>
     </div>
 </x-page>
