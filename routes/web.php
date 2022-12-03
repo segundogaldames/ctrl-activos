@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdquisitionController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmployeeController;
@@ -32,3 +33,4 @@ Route::resource('employees', EmployeeController::class);
 Route::resource('areas', AreaController::class);
 Route::resource('cities', CityController::class);
 Route::resource('providers', ProviderController::class);
+Route::resource('adquisitions', AdquisitionController::class);

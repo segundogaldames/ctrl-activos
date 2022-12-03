@@ -13,4 +13,9 @@ class Provider extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function adquisitions()
+    {
+        return $this->hasMany(Adquisition::class);
+    }
 }
