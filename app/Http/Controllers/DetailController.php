@@ -23,7 +23,12 @@ class DetailController extends Controller
      */
     public function show(Detail $detail)
     {
-        //
+        return view('details.show', [
+            'detail' => $detail,
+            'module' => 'Detalles de Adquisición',
+            'subject' => 'Detalle de Adquisición',
+            'back' => route('adquisitions.show', $detail->adquisition_id)
+        ]);
     }
 
     public function addDetail(Adquisition $adquisition)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Adquisition;
 use App\Models\Provider;
+use App\Models\Detail;
 use Illuminate\Http\Request;
 
 class AdquisitionController extends Controller
