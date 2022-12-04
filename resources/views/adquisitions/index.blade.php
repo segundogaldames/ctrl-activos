@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Factura</th>
                 <th>Fecha</th>
                 <th>Proveedor</th>
                 <th>Registrado Por</th>
@@ -14,12 +15,16 @@
             @foreach ($adquisitions as $adquisition)
             <tr>
                 <td>{{ $adquisition->id }}</td>
+                <td>{{ $adquisition->factura }}</td>
                 <td>{{ $adquisition->created_at }}</td>
                 <td>{{ $adquisition->provider->name }}</td>
                 <td>{{ $adquisition->user->name }}</td>
                 <td>
                     <a href="{{ route('adquisitions.show', $adquisition) }}" class="btn btn-outline-success">
                         <x-buttonView></x-buttonView>
+                    </a>
+                    <a href="{{ route('adquisitions.edit', $adquisition) }}" class="btn btn-outline-warning">
+                        <x-buttonEdit></x-buttonEdit>
                     </a>
                 </td>
             </tr>

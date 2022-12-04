@@ -7,12 +7,20 @@
                     <td>{{ $adquisition->id }}</td>
                 </tr>
                 <tr>
+                    <th>Factura N°:</th>
+                    <td>{{ $adquisition->factura }}</td>
+                </tr>
+                <tr>
                     <th>Proveedor:</th>
                     <td>{{ $adquisition->provider->name }}</td>
                 </tr>
                 <tr>
                     <th>Creado por:</th>
                     <td>{{ $adquisition->user->name }}</td>
+                </tr>
+                <tr>
+                    <th>Total Compra:</th>
+                    <td>$ {{ number_format($suma,0,',','.') }}</td>
                 </tr>
                 <tr>
                     <th>Fecha creación:</th>

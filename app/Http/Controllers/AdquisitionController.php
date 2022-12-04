@@ -62,10 +62,12 @@ class AdquisitionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'factura' => 'required|integer|unique:adquisitions',
             'provider' => 'required|integer'
         ]);
 
         $adquisition = new Adquisition;
+        $adquisition->factura = $request->factura;
         $adquisition->provider_id = $request->provider;
         $adquisition->user_id = auth()->user()->id;
         $adquisition->save();
@@ -81,12 +83,55 @@ class AdquisitionController extends Controller
      */
     public function show(Adquisition $adquisition)
     {
+        $suma = $this->sumAdquisition($adquisition);
+
         return view('adquisitions.show', [
             'adquisition' => $adquisition,
+            'suma' => $suma,
             'module' => 'Adquisiciones',
             'subject' => 'Detalle de Adquisición',
             'back' => route('adquisitions.index')
         ]);
     }
 
+    public function edit(Adquisition $adquisition)
+    {
+        return view('adquisitions.edit',[
+            'adquisition' => $adquisition,
+            'adquisition' => $adquisition,
+            'module' => 'Adquisiciones',
+            'subject' => 'Editar Adquisición',
+            'button' => 'Editar',
+            'process' => route('adquisitions.update', $adquisition),
+            'back' => route('adquisitions.index'),
+        ]);
+    }
+
+    public function update(Request $request, Adquisition $adquisition)
+    {
+        $this->validate($request, [
+            'factura' => 'required|integer|unique:adquisitions',
+        ]);
+
+        $adquisition = Adquisition::find($adquisition->id);
+        $adquisition->factura = $request->factura;
+        $adquisition->save();
+
+        return redirect('/adquisitions/' . $adquisition->id)->with('success','La adquisición se ha modificado correctamente');
+    }
+
+    #############################################################
+    private function sumAdquisition($adquisition)
+    {
+        $suma = 0;
+        $details = Detail::select('id','count','price')->where('adquisition_id', $adquisition->id)->get();
+
+        if ($details) {
+            foreach ($details as $detail) {
+                $suma = $suma + ($detail->count * $detail->price);
+            }
+        }
+
+        return $suma;
+    }
 }

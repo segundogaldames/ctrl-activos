@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <th>Factura N°:</th>
-                <td></td>
+                <td>{{ $detail->adquisition->factura }}</td>
             </tr>
             <tr>
                 <th>Fecha creación:</th>
