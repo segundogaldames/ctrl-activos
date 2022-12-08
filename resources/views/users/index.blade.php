@@ -1,6 +1,6 @@
 <x-page :module=$module :subject=$subject :route=$route :new=$new>
     @if (isset($users) && count($users))
-    <table class="table table-hover" id="table">
+    <table class="table table-hover display" id="table">
         <thead>
             <tr>
                 <th>Id</th>

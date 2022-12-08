@@ -67,6 +67,7 @@
     </style>
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/buttons.dataTables.min.css') }}">
 </head>
 <body>
 @include('partials._header')
@@ -93,5 +94,10 @@
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jszip.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/vfs_fonts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/buttons.html5.min.js') }}"></script>
 </body>
 </html>
