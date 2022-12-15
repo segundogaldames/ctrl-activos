@@ -5,7 +5,13 @@
         @method('put')
     @endif
     <div class="mb3">
-        <label class="form-label">Producto: {{ $inventory->product->name }} - {{ $inventory->product->model }}</label>
+        <label class="form-label">Producto:
+            @if ($button == 'Guardar')
+                {{ $product->name }} - {{ $product->model }}
+            @else
+                {{ $inventory->product->name }} - {{ $inventory->product->model }}
+            @endif
+        </label>
     </div>
     <div class="mb-3">
         <label for="code" class="form-label">Código <span class="text-danger">*</span> </label>

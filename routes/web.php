@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\DB;
+use App\Models\Inventory;
 
 use App\Http\Controllers\AdquisitionController;
 use App\Http\Controllers\AreaController;
@@ -17,7 +19,17 @@ use App\Http\Controllers\InventoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $inventories = DB::table('inventories')
+        ->select(DB::raw('count(*) as cantidad, products.name as product'))
+        ->join('products','products.id','=','inventories.product_id')
+        ->groupBy('products.name')
+        ->where('inventories.status_id', 1)
+        ->get();
+
+    return view('welcome', [
+        'inventories' => $inventories,
+    ]);
 })->middleware('auth','active');
 
 Auth::routes();
