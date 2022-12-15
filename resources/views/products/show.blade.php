@@ -40,6 +40,7 @@
         </table>
         <p>
             <x-buttonBack :back=$back></x-buttonBack>
+            <a href="{{ route('inventories.addInventory', $product) }}" class="btn btn-outline-success">Agregar Inventario</a>
         </p>
     </div>
 </x-page>

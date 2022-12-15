@@ -13,4 +13,9 @@ class Status extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }

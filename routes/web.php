@@ -13,6 +13,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrademarkController;
+use App\Http\Controllers\InventoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,8 +37,11 @@ Route::resource('cities', CityController::class);
 Route::resource('providers', ProviderController::class);
 Route::resource('adquisitions', AdquisitionController::class);
 Route::resource('details', DetailController::class)->only('show','edit','update');
+Route::resource('inventories', InventoryController::class)->except('create','store');
 
 //rutas especificas
 
 Route::get('/details/addDetail/{adquisition}', [DetailController::class, 'addDetail'])->name('details.addDetail');
 Route::post('/details/newDetail/{adquisition}',[DetailController::class, 'newDetail'])->name('details.newDetail');
+Route::get('/inventories/addInventory/{product}', [InventoryController::class,'addInventory'])->name('inventories.addInventory');
+Route::post('/inventories/newInventory/{product}', [InventoryController::class,'newInventory'])->name('inventories.newInventory');

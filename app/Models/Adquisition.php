@@ -23,4 +23,9 @@ class Adquisition extends Model
     {
         return $this->hasMany(Detail::class);
     }
+
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }
