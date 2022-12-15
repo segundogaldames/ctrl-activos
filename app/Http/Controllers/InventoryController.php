@@ -77,7 +77,12 @@ class InventoryController extends Controller
      */
     public function show(Inventory $inventory)
     {
-        //
+        return view('inventories.show', [
+            'inventory' => $inventory,
+            'module' => 'Inventarios',
+            'subject' => 'Detalle de Inventario',
+            'back' => route('inventories.index')
+        ]);
     }
 
     /**
@@ -88,7 +93,19 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        //
+        $statuses = Status::select('id','name')->orderBy('name')->get();
+        $adquisitions = Adquisition::select('id','factura')->orderBy('created_at','desc')->get();
+
+        return view('inventories.edit',[
+            'inventory' => $inventory,
+            'statuses' => $statuses,
+            'adquisitions' => $adquisitions,
+            'module' => 'Inventarios',
+            'subject' => 'Editar Inventario',
+            'button' => 'Editar',
+            'process' => route('inventories.update', $inventory),
+            'back' => route('inventories.index'),
+        ]);
     }
 
     /**
@@ -100,7 +117,19 @@ class InventoryController extends Controller
      */
     public function update(Request $request, Inventory $inventory)
     {
-        //
+        $this->validate($request,[
+            'code' => 'required|string|min:3',
+            'adquisition' => 'required|integer',
+            'status' => 'required|integer',
+        ]);
+
+        $inventory = Inventory::find($inventory->id);
+        $inventory->code = $request->code;
+        $inventory->adquisition_id = $request->adquisition;
+        $inventory->status_id = $request->status;
+        $inventory->save();
+
+        return redirect('/inventories/' . $inventory->id)->with('success','El inventario se ha modificado correctamente');
     }
 
     /**
